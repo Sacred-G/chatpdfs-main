@@ -46,7 +46,7 @@ def is_openai_api_key_set() -> bool:
 def main():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["OPENAI_API_KEY"] = os.environ.get("OPENAI_API_KEY", "")
+        st.session_state["OPENAI_API_KEY"] = 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
         if is_openai_api_key_set():
             st.session_state["agent"] = Agent(st.session_state["OPENAI_API_KEY"])
         else:
@@ -54,11 +54,7 @@ def main():
 
     st.header("MTI FieldTech Chat AI")
 
-    if st.text_input("OpenAI API Key", value=st.session_state["OPENAI_API_KEY"], key="input_OPENAI_API_KEY", type="password"):
-        if (
-            len(st.session_state["input_OPENAI_API_KEY"]) > 0
-            and st.session_state["input_OPENAI_API_KEY"] != st.session_state["OPENAI_API_KEY"]
-        ):
+    
             st.session_state["OPENAI_API_KEY"] = st.session_state["input_OPENAI_API_KEY"]
             if st.session_state["agent"] is not None:
                 st.warning("Please, upload the files again.")
@@ -69,12 +65,12 @@ def main():
     st.subheader("Upload a document")
     st.file_uploader(
         "Upload document",
-        type=["pdf"],
+        type=["pdf,csv,docx"],
         key="file_uploader",
         on_change=read_and_save_file,
         label_visibility="collapsed",
         accept_multiple_files=True,
-        disabled=not is_openai_api_key_set(),
+        
     )
 
     st.session_state["ingestion_spinner"] = st.empty()
