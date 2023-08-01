@@ -52,7 +52,7 @@ def main():
         else:
             st.session_state["agent"] = None
 
-    st.header("ChatPDF")
+    st.header("MTI FieldTech Chat AI")
 
     if st.text_input("OpenAI API Key", value=st.session_state["OPENAI_API_KEY"], key="input_OPENAI_API_KEY", type="password"):
         if (
