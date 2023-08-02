@@ -3,9 +3,11 @@ import tempfile
 import streamlit as st
 from streamlit_chat import message
 from agent import Agent
+from PIL import Image
 
 st.set_page_config(page_title="MTI FieldTech AI")
-
+logo = Image.open("Images/mtilogo1.jpg")
+st.image(logo, width=400)
 
 def display_messages():
     st.subheader("Chat")
@@ -46,7 +48,8 @@ def is_openai_api_key_set() -> bool:
 def main():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["OPENAI_API_KEY"] = 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
+        st.session_state["OPENAI_API_KEY"] = "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"
+
         if is_openai_api_key_set():
             st.session_state["agent"] = Agent(st.session_state["OPENAI_API_KEY"])
         else:
@@ -55,16 +58,12 @@ def main():
     st.header("MTI FieldTech Chat AI")
 
     
-        if st.session_state["agent"] is not None:
-                st.warning("Please, upload the files again.")
-            st.session_state["messages"] = []
-            st.session_state["user_input"] = ""
-            st.session_state["agent"] = Agent(st.session_state["OPENAI_API_KEY"])
+
 
     st.subheader("Upload a document")
     st.file_uploader(
         "Upload document",
-        type=["pdf,csv,docx"],
+        type=["pdf"],
         key="file_uploader",
         on_change=read_and_save_file,
         label_visibility="collapsed",
