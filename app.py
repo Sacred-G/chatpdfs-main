@@ -46,7 +46,7 @@ def is_openai_api_key_set() -> bool:
 def main():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["OPENAI_API_KEY"] = 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
+        st.session_state["OPENAI_API_KEY"] = "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"
         if is_openai_api_key_set():
             st.session_state["agent"] = Agent(st.session_state["OPENAI_API_KEY"])
         else:
