@@ -55,7 +55,7 @@ def main():
     st.header("MTI FieldTech Chat AI")
 
     
-        if st.session_state["agent"] is not None:
+    if st.session_state["agent"] is not None:
                 st.warning("Please, upload the files again.")
             st.session_state["messages"] = []
             st.session_state["user_input"] = ""
