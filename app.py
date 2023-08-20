@@ -5,6 +5,7 @@ import streamlit as st
 from streamlit_chat import message
 from agent import Agent
 from PIL import Image
+
 from pdf2image import convert_from_path
 
 
@@ -103,8 +104,8 @@ def main():
     st.divider()
     st.markdown("Source code: [Github](https://github.com/sacred-g/chatpdfs)")
     st.markdown("Created by Steven Bouldin")
-    st.markdown("copy and Paste the api key from below")
-    st.markdown("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")
+
+
 
 
 if __name__ == "__main__":
