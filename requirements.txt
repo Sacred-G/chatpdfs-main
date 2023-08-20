@@ -7,3 +7,4 @@ pypdf
 tiktoken
 pdfplumber
 pdf2image
+poppler-utils
