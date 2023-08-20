@@ -10,7 +10,7 @@ from pdf2image import convert_from_path
 
 
 st.set_page_config(page_title="MTI FieldTech AI")
-logo = Image.open("Images/mtilogo1.jpg")
+logo = Image.open("Images/mtilogo1.png")
 st.image(logo, width=400)
 
 def display_messages():
