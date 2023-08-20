@@ -14,7 +14,7 @@ class Agent:
         self.embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
         self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
-        self.llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
+        self.llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
 
         self.chat_history = None
         self.chain = None
