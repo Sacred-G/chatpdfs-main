@@ -6,3 +6,4 @@ faiss-cpu
 pypdf
 tiktoken
 pdfplumber
+pdf2image
