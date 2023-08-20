@@ -1,3 +1,4 @@
+poppler-utils
 streamlit
 streamlit_chat
 langchain
@@ -7,4 +8,4 @@ pypdf
 tiktoken
 pdfplumber
 pdf2image
-poppler-utils
+
