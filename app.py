@@ -48,8 +48,7 @@ def is_openai_api_key_set() -> bool:
 def main():
     if len(st.session_state) == 0:
         st.session_state["messages"] = []
-        st.session_state["OPENAI_API_KEY"] = "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"
-
+        st.session_state["OPENAI_API_KEY"] = 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
         if is_openai_api_key_set():
             st.session_state["agent"] = Agent(st.session_state["OPENAI_API_KEY"])
         else:
@@ -58,7 +57,11 @@ def main():
     st.header("MTI FieldTech Chat AI")
 
     
-
+        if st.session_state["agent"] is not None:
+                st.warning("Please, upload the files again.")
+            st.session_state["messages"] = []
+            st.session_state["user_input"] = ""
+            st.session_state["agent"] = Agent(st.session_state["OPENAI_API_KEY"])
 
     st.subheader("Upload a document")
     st.file_uploader(
