@@ -104,6 +104,7 @@ def main():
     st.divider()
     st.markdown("Source code: [Github](https://github.com/sacred-g/chatpdfs)")
     st.markdown("Created by Steven Bouldin")
+    st.markdown("Version: 1.1")
 
 
 
