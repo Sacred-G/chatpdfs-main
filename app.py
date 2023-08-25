@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 import tempfile
 import pdfplumber
 import streamlit as st
@@ -13,6 +14,12 @@ st.set_page_config(page_title="MTI FieldTech AI")
 logo = Image.open("Images/mtilogo1.png")
 st.image(logo, width=400)
 
+with st.sidebar:
+        with st.expander("Settings",  expanded=True):
+            TEMP = st.slider(label="LLM Temperature", min_value=0.0, max_value=1.0, value=0.3)
+            st.markdown("Adjust the LLM Temperature: A higher value makes the output more random, while a lower value makes it more deterministic.")
+            st.markdown("NOTE: Anything above 0.7 may produce hallucinations")
+
 def display_messages():
     st.subheader("Chat")
     for i, (msg, is_user) in enumerate(st.session_state["messages"]):
@@ -26,6 +33,18 @@ def process_input():
             agent_text = st.session_state["agent"].ask(user_text)
         st.session_state["messages"].append((user_text, True))
         st.session_state["messages"].append((agent_text, False))
+        
+        
+        
+def read_csv_or_excel(file_path):
+    if file_path.endswith('.csv'):
+        data = pd.read_csv(file_path)
+    elif file_path.endswith('.xlsx'):
+        data = pd.read_excel(file_path)
+    else:
+        data = None
+    return data
+
 def read_and_save_file():
     if st.session_state["agent"] is not None:  # Check if agent is not None
         st.session_state["agent"].forget()  # Call forget method
